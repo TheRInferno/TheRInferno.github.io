@@ -20,5 +20,5 @@ If you want to contribute to this new editions. follow these instructions:
 ```
 - merge your branch with the master.
 
-Now, You can see your contribution [here](TheRInferno.github.io), Refesh and at the top of the page the link to your chapter should appear.
+Now, You can see your contribution [here](https://TheRInferno.github.io), Refesh and at the top of the page the link to your chapter should appear.
 
