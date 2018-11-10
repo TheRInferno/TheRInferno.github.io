@@ -1,0 +1,7 @@
+name: "The R Inferno"
+output_dir: "."
+navbar:
+  title: "The R Inferno"
+  left:
+    - text: "Home"
+      href: index.html
