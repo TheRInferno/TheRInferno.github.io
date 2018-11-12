@@ -1,0 +1,21 @@
+---
+title: "The R Inferno"
+output: html_document
+---
+
+#Preface
+###Abstract: If you are using R and you think you're in hell, this is a map for you.
+<img src="http://www.supercoloring.com/sites/default/files/styles/coloring_medium/public/coloring-image-files/letter-w.jpg" alt="ppp" style="max-height:100px;">andered through [www.r-project.org](http://www.r-project.org).
+
+To state the good I found there, I'll also say what else I saw.
+
+Having abandoned the true way, I fell into a deep sleep and awoke in a deep dark wood. I set out to escape the wood, but my path was blocked by a lion. As I fled to lower ground, a figure appeared before me. "Have mercy on me, whatever you are," I cried, "whether shade or living human."
+
+"Not a man, though once I was. My parents were from Lombardy. I was born sub Julio and lived in Rome in an age of false and lying gods."
+
+"Are you Virgil, the fountainhead of such a volume?"
+
+"I think it wise you follow me. I???ll lead you through an eternal place where you shall hear despairing cries and see those ancient souls in pain as they grieve their second death."
+
+After a journey, we arrived at an archway. Inscribed on it: "Through me the way into the suffering city, through me the way among the lost". Through the archway we went.Now sighing and wails resounded through the starless air, so that I too began weeping. Unfamiliar tongues, horrendous accents, cries of rage???all of these whirled in that dark and timeless air.
+
