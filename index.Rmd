@@ -58,7 +58,7 @@ git merge your_name_br
 
 - Add the book.Rmd, book.html
 ```{bash, eval=F}
-git book*
+git add book*
 ```
 
 
