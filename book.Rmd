@@ -3,7 +3,7 @@ title: "The R Inferno"
 output: html_document
 ---
 
-Here you can add the link to your page created in RMarkdown.
+Here you can add the link to your html page created in RMarkdown.
 
 - [Preface by Marco](preface.html)
 

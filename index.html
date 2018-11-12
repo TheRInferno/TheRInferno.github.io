@@ -20,6 +20,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -162,6 +163,14 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 
@@ -183,6 +192,9 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
+<li>
+  <a href="book.html">Book</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -192,6 +204,14 @@ $(document).ready(function () {
 </div><!--/.navbar -->
 
 <div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
 
@@ -205,20 +225,50 @@ If you want to contribute to this new editions. follow these instructions:</p>
 <ul>
 <li><p>First of all, you need to have access to this repository (if you don’t have it, ask to the teachers).</p></li>
 <li><p>Clone this repository, and create a new branch (name it your_name_br).</p></li>
-<li><p>Chose a chapter of the book and re-write it in RMarkdown, The name have to be be Ch_X_your_name (Use the chunk for the R code, add also other images …).</p></li>
+</ul>
+<pre class="bash"><code>git clone https://github.com/TheRInferno/TheRInferno.github.io
+git branch your_name_br
+git checkout your_name_br</code></pre>
+<ul>
+<li><p>Chose a chapter of the book and re-write it in RMarkdown (use also the xaringan if you want to do a presentation). The name have to be be Ch_X_your_name (Use the chunk for the R code, add also other images …).</p></li>
 <li><p>Knit your RMarkdown file.</p></li>
 <li><p>Add the files created to the staging area.</p></li>
-<li><p>Commit the changes and push it.</p></li>
-<li><p>If you are happy of your work, go back to the master branch.</p></li>
-<li><p>pull the last version of the repository.</p></li>
-<li><p>Modify the _site.yml file, add two line at the end:</p></li>
 </ul>
-<pre><code>    - text: &quot;Ch_X&quot;
-      href: Ch_X_your_name.html</code></pre>
+<pre class="bash"><code>git add file1
+git add file2</code></pre>
+<ul>
+<li>Commit the changes and push it.</li>
+</ul>
+<pre class="bash"><code>git commit -m &#39;my page&#39;
+git push origin your_name_br</code></pre>
+<ul>
+<li>If you are happy of your work, go back to the master branch.</li>
+</ul>
+<pre class="bash"><code>git checkout master
+</code></pre>
+<ul>
+<li>pull the last version of the repository.</li>
+</ul>
+<pre class="bash"><code>git pull</code></pre>
 <ul>
 <li>merge your branch with the master.</li>
 </ul>
-<p>Now, You can see your contribution <a href="https://TheRInferno.github.io">here</a>, refesh and at the top of the page the link to your chapter should appear.</p>
+<pre class="bash"><code>git merge your_name_br</code></pre>
+<ul>
+<li>Modify the book.Rmd file, add the line with the link to your page.</li>
+</ul>
+<pre class="r"><code>[Ch_X by your_name](Ch_X_your_name.html)</code></pre>
+<ul>
+<li><p>Knit the book.Rmd file.</p></li>
+<li><p>Add the book.Rmd, book.html</p></li>
+</ul>
+<pre class="bash"><code>git book*</code></pre>
+<ul>
+<li>commit your change and push you local repository</li>
+</ul>
+<pre class="bash"><code>git commit -m &#39;my links&#39;
+git push origin master</code></pre>
+<p>Now, You can see your contribution <a href="https://TheRInferno.github.io/book.html">here</a>, refesh and at the top of the page the link to your chapter should appear.</p>
 
 
 

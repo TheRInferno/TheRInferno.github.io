@@ -1,30 +1,5 @@
 # The R Inferno
 Welcome to this repository. This is a exercise of the [Workshop: "Developing skills in R"](https://deepskillsr.github.io/). Given at [Stockholm University](https://www.su.se/deep/english/about-us/events/workshop-developing-skills-in-r-1.402004). In this exercise we re-edit [The R Inferno book](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf) written by [Patrick Burns](https://www.burns-stat.com/) in RMarkdown.  
-If you want to contribute to this new editions. follow these instructions:
 
-- First of all, you need to have access to this repository (if you don't have it, ask to the teachers).
 
-- Clone this repository, and create a new branch (name it your_name_br). 
-
-- Chose a chapter of the book and re-write it in RMarkdown, The name have to be be Ch_X_your_name (Use the chunk for the R code, add also other images ...).
-
-- Knit your RMarkdown file.
-
-- Add the files created to the staging area. 
-
-- Commit the changes and push it.
-
-- If you are happy of your work, go back to the master branch.
-
-- pull the last version of the repository.
-
-- Modify the _site.yml file, add two line at the end:
-
-```
-    - text: "Ch_X"
-      href: Ch_X_your_name.html
-```
-
-- merge your branch with the master.
-
-Now, You can see your contribution [here](https://TheRInferno.github.io), refesh and at the top of the page the link to your chapter should appear.
+If you want to partecipate go to [here](https://TheRInferno.github.io)r.
