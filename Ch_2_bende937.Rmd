@@ -68,7 +68,7 @@ b=numeric(current.N)) my.df[1:count,] <- old.df[1:count, ]
 count <- count + this.N }my.df <- my.df[1:count,]
 ```
 
-![The giants by Sandro Botticelli](inferno_pic.png)
+![The giants by Sandro Botticelli](./inferno_pic.png)
 
 Often there is a simpler approach to the whole problem—build a list of pieces and then scrunch them together in one go.
 
