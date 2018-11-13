@@ -9,3 +9,4 @@ Here you can add the link to your html page created in RMarkdown.
 - [CH_2 copied by bende937](Ch_2_bende937.html)
 - [Chapter 9 by Felicity](Ch_9_feholm.html)
 - [Ch_2 by pajkleon](Ch_X_pajkleon.html)
+- [Chapter 8.3](Ch_8.3_Robert_Ramo.html)
