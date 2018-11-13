@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Felicity Holmes" />
 
+<meta name="date" content="2018-11-13" />
 
-<title>The R Inferno</title>
+<title>Chapter 9</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -198,16 +200,38 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">The R Inferno</h1>
+<h1 class="title toc-ignore">Chapter 9</h1>
+<h4 class="author"><em>Felicity Holmes</em></h4>
+<h4 class="date"><em>13 November 2018</em></h4>
 
 </div>
 
 
-<p>Here you can add the link to your html page created in RMarkdown.</p>
-<ul>
-<li><a href="preface.html">Preface by Marco</a></li>
-<li><a href="Ch_2_bende937.html">CH_2 copied by bende937</a></li>
-</ul>
+<div id="unhelpfully-seeking-advice" class="section level2">
+<h2>Unhelpfully Seeking Advice</h2>
+<p>Here live the thieves, guarded by the centaur Cacus. The inhabitants are bitten by lizards and snakes.</p>
+<p>There’s a special place for those who—not being content with one of the 8 Circles we’ve already visited—feel compelled to drag the rest of us into hell. The road to writing a mail message should include at least the following stops:</p>
+</div>
+<div id="read-the-appropriate-documentation" class="section level2">
+<h2>9.1 Read the appropriate documentation</h2>
+<p>“RTFM” in the jargon. There is a large amount of documentation about R, both official and contributed, and in various formats. A large amount of documentation means that it is often nontrivial to find what you are looking for—especially when frustration is setting in and blood pressure is rising.</p>
+<p><strong>Breathe</strong></p>
+<p>There are various searches that you can do. R functions for searching include <code>help.search</code>, <code>RSiteSearch</code>, and <code>apropos</code>.</p>
+<p>If you are looking for particular functionality, then check the Task Views (found on the left-side menu of CRAN).</p>
+<p>If you have an error, then look in rather than out—debug the problem.</p>
+<p>One way of debugging is to set the error option, and then use the debugger function:</p>
+<pre><code>options(error=dump.frames)
+# command that causes the error
+debugger()</code></pre>
+<p>The debugger function then provides a menu of the stack of functions that have been called at the point of the error. You can inspect the state of the objects inside these functions, and hopefully understand what the problem is.</p>
+<div class="figure" style="text-align: center">
+<img src="the_thieves.jpg" alt="**Fig 9.1:** The Thieves by Sandra Botticelli" width="670" />
+<p class="caption">
+<strong>Fig 9.1:</strong> The Thieves by Sandra Botticelli
+</p>
+</div>
+<p>As Virgil said to me, “I’m pleased with all your questions, but one of them might have found its answer when you saw the red stream boiling.”</p>
+</div>
 
 
 
