@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Circle 2</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The R Inferno</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="book.html">Book</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Circle 2</h1>
+
+</div>
+
+
+<div id="growing-objects" class="section level1">
+<h1>Growing Objects</h1>
+<p>We made our way into the second Circle, here live the gluttons.<br />
+Let’s look at three ways of doing the same task of creating a sequence of numbers. Method 1 is to grow the object:</p>
+<pre class="r"><code>vec &lt;- numeric(0)
+for(i in 1:n) vec &lt;- c(vec, i)</code></pre>
+<p>Method 2 creates an object of the final length and then changes the values in the object by subscripting:</p>
+<pre class="r"><code>vec &lt;- numeric(n)
+for(i in 1:n) vec[i] &lt;- i</code></pre>
+<p>Method 3 directly creates the final object:</p>
+<pre class="r"><code>vec &lt;- 1:n</code></pre>
+<p>Table 2.1 shows the timing in seconds on a particular (old) machine of these three methods for a selection of values of n. The relationships for varying <em>n</em> are all roughly linear on a log-log scale, but the timings are drastically different. You may wonder why growing objects is so slow. It is the computational equivalent of suburbanization. When a new size is required, there will not be enough room where the object is; so it needs to move to a more open space. Then that space will be too small, and it will need to move again. It takes a lot of time to move house. Just as in physical suburbanization, growing objects can spoil all of the available space. You end up with lots of small pieces of available memory, but no large pieces. This is called fragmenting memory.</p>
+<p>Table 2.1: Time in seconds of methods to create a sequence.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+grow
+</th>
+<th style="text-align:right;">
+subscript
+</th>
+<th style="text-align:right;">
+colon operator
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1e+03
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+0.00006
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e+04
+</td>
+<td style="text-align:right;">
+0.590
+</td>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+0.00040
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e+05
+</td>
+<td style="text-align:right;">
+133.680
+</td>
+<td style="text-align:right;">
+0.79
+</td>
+<td style="text-align:right;">
+0.00500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1e+06
+</td>
+<td style="text-align:right;">
+18.718
+</td>
+<td style="text-align:right;">
+8.10
+</td>
+<td style="text-align:right;">
+0.09700
+</td>
+</tr>
+</tbody>
+</table>
+<p>A more common—and probably more dangerous—means of being a glutton is with rbind. For example:</p>
+<pre class="r"><code>my.df &lt;- data.frame(a=character(0), b=numeric(0))
+for(i in 1:n) {
+my.df &lt;- rbind(my.df, data.frame(a=sample(letters, 1),
+b=runif(1)))
+}</code></pre>
+<p>Probably the main reason this is more common is because it is more likely that each iteration will have a different number of observations. That is, the code is more likely to look like:</p>
+<pre class="r"><code>my.df &lt;- data.frame(a=character(0), b=numeric(0))
+for(i in 1:n) {
+this.N &lt;- rpois(1, 10)
+my.df &lt;- rbind(my.df, data.frame(a=sample(letters,
+this.N, replace=TRUE), b=runif(this.N)))
+}</code></pre>
+<p>Often a reasonable upper bound on the size of the final object is known. If so, then create the object with that size and then remove the extra values at the end. If the final size is a mystery, then you can still follow the same scheme, but allow for periodic growth of the object.</p>
+<pre class="r"><code>current.N &lt;- 10 * n
+my.df &lt;- data.frame(a=character(current.N),
+b=numeric(current.N))
+count &lt;- 0
+for(i in 1:n) {
+this.N &lt;- rpois(1, 10)
+if(count + this.N &gt; current.N) {
+old.df &lt;- my.df
+current.N &lt;- round(1.5 * (current.N + this.N))
+my.df &lt;- data.frame(a=character(current.N),
+b=numeric(current.N))
+my.df[1:count,] &lt;- old.df[1:count, ]
+}
+my.df[count + 1:this.N,] &lt;- data.frame(a=sample(letters,
+this.N, replace=TRUE), b=runif(this.N))
+count &lt;- count + this.N
+}
+my.df &lt;- my.df[1:count,]</code></pre>
+<p>Figure 2.1: The giants by Sandro Botticelli.</p>
+<div class="figure">
+<img src="Figure2.png" />
+
+</div>
+<p>Often there is a simpler approach to the whole problem - build a list of pieces and then scrunch them together in one go.</p>
+<pre class="r"><code>my.list &lt;- vector(&#39;list&#39;, n)
+for(i in 1:n) {
+this.N &lt;- rpois(1, 10)
+my.list[[i]] &lt;- data.frame(a=sample(letters, this.N
+replace=TRUE), b=runif(this.N))
+}
+my.df &lt;- do.call(&#39;rbind&#39;, my.list)</code></pre>
+<p>There are ways of cleverly hiding that you are growing an object. Here is an example:</p>
+<pre class="r"><code>hit &lt;- NA
+for(i in 1:one.zillion) {
+if(runif(1) &lt; 0.3) hit[i] &lt;- TRUE
+}</code></pre>
+<p>Each time the condition is true, hit is grown. Eliminating the growth of objects can be one of the easiest and most dramatic ways of speeding up R code.</p>
+<p>Are tomorrow’s bigger computers going to solve the problem? For some people, yes - their data will stay the same size and computers will get big enough to hold it comfortably. For other people it will only get worse|more powerful computers means extraordinarily larger datasets. If you are likely to be in this latter group, you might want to get used to working with databases now.</p>
+<p>If you have one of those giant computers, you may have the capacity to attempt to create something larger than R can handle. See:</p>
+<pre class="r"><code>?&#39;Memory-limits&#39;</code></pre>
+<p>for the limits that are imposed.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
