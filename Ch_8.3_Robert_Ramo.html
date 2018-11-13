@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">The R Inferno</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="book.html">Book</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="devils" class="section level3">
+<h3>8.3 Devils</h3>
+<p>The most devilish problem is getting data from a file into R correctly.</p>
+<div id="read.table" class="section level4">
+<h4>8.3.1 read.table</h4>
+<p>The <code>read.table</code> function is the most common way of getting data into R. Reading its help file three times is going to be very efficient time management if you ever use <code>read.table</code>. In particular the <code>header</code> and <code>row.names</code> arguments control what (if anything) in the file should be used as column and row names.<br />
+Another great time management tool is to inspect the result of the data you have read before attempting to use it.</p>
+</div>
+<div id="read-a-table" class="section level4">
+<h4>8.3.2 read a table</h4>
+<p>The <code>read.table</code> function does not create a table—it creates a data frame. You don’t become a book just because you read a book. The <code>table</code> function returns a table.<br />
+The idea of <code>read.table</code> and relatives is that they read data that are in a rectangular format.</p>
+</div>
+<div id="the-missing-the-whole-missing-and-nothing-but-the-missing" class="section level4">
+<h4>8.3.3 the missing, the whole missing and nothing but the missing</h4>
+<p>Misreading missing values is an efficacious way of producing garbage. Missing values can become non-missing, non-missing values can become missing, logically numeric columns can become factors.<br />
+The <code>na.strings</code> argument to <code>read.table</code> needs to be set properly. An example might be:</p>
+<p><code>na.strings=c(’.’, ’-999’)</code></p>
+</div>
+<div id="misquoting" class="section level4">
+<h4>8.3.4 misquoting</h4>
+<p>A quite common file format is to have a column of names followed by some number of columns of data. If there are any apostrophes in those names, then you are likely to get an error reading the file unless you have set the quote argument to <code>read.table</code>. A likely value for <code>quote</code> is:</p>
+<p><code>quote=’’</code></p>
+<p>This sounds like easy advise, but almost surely it is not going to be apparent that quotes are the problem. You may get an error that says there was the wrong number of items in a line. When you get such an error, it is often a good idea to use count.fields to get a sense of what R thinks about your file. Something along the lines of:</p>
+<p><code>foo.cf &lt;- count.fields(’foo.txt’, sep=’\t’)</code><br />
+<code>table(foo.cf)</code></p>
+</div>
+<div id="thymine-is-true-female-is-false" class="section level4">
+<h4>8.3.5 thymine is TRUE, female is FALSE</h4>
+<p>You are reading in DNA bases identified as A, T, G and C. The columns are read as factors. Except for the column that is all T—that column is logical. Similarly, a column for gender that is all F for female will be logical. The solution is to use the read.table argument: colClasses=’character’</p>
+<p>or</p>
+<p>colClasses=’factor’</p>
+<p>as you like. If there are columns of other sorts of data, then you need to give colClasses a vector of appropriate types for the columns in the file. Using colClasses can also make the call much more efficient.</p>
+<p>Figure 8.3: The treacherous to country and the treacherous to guests and hosts by Sandro Botticelli.</p>
+</div>
+<div id="whitespace-is-white" class="section level4">
+<h4>8.3.6 whitespace is white</h4>
+<p>Whitespace is invisible, and we have a predilection to believe that invisible means non-existent. factor(c(’A ’, ’A’, ’B’)) [1] A A B Levels: A A B It is extraordinarily easy to get factors like this when reading in data. Setting the strip.white argument of read.table to TRUE can prevent this.</p>
+</div>
+<div id="extraneous-fields" class="section level4">
+<h4>8.3.7 extraneous fields</h4>
+<p>When a file has been created in a spreadsheet, there are sometimes extraneous empty fields in some of the lines of the file. In such a case you might get an error similar to: mydat &lt;- read.table(’myfile’, header=TRUE, sep=’’) Error in scan(file, what, nmax, sep, dec, quote, skip, : line 10 did not have 55 elements This, of course, is a perfect instance to use count.fields to see what is going on. If extraneous empty fields do seem to be the problem, then one solution is: mydat &lt;- read.table(’myfile’, header=TRUE, sep=’’, + fill=TRUE) mydat &lt;- mydat[, 1:53] At this point, it is wiser than usual to carefully inspect the results to see that the data are properly read and aligned.</p>
+</div>
+<div id="fill-and-extraneous-fields" class="section level4">
+<h4>8.3.8 fill and extraneous fields</h4>
+<p>When the fill argument is TRUE (which is the default for read.csv and read.delim but not for read.table), there can be trouble if there is a variable number of fields in the file. writeLines(c(“A,B,C,D”, + “1,a,b,c”, + “2,d,e,f”, + “3,a,i,j”, + “4,a,b,c”, + “5,d,e,f”, + “6,g,h,i,j,k,l,m,n”), + con=file(“test.csv”)) read.csv(“test.csv”) read.csv(“test.csv”, fill=FALSE)</p>
+<p>The first 5 lines of the file are checked for consistency of the number of fields. Use count.fields to check the whole file.</p>
+</div>
+<div id="reading-messy-files" class="section level4">
+<h4>8.3.9 reading messy files</h4>
+<p>read.table and its relatives are designed for files that are arranged in a tabular form. Not all files are in tabular form. Trying to use read.table or a relative on a file that is not tabular is folly—you can end up with mangled data. Two functions used to read files with a more general layout are scan and readLines.</p>
+</div>
+<div id="imperfection-of-writing-then-reading" class="section level4">
+<h4>8.3.10 imperfection of writing then reading</h4>
+<p>Do not expect to write data to a file (such as with write.table), read the data back into R and have that be precisely the same as the original. That is doing two translations, and there is often something lost in translation. You do have some choices to get the behavior that you want: • Use save to store the object and use attach or load to use it. This works with multiple objects. • Use dput to write an ASCII representation of the object and use dget to bring it back into R. • Use serialize to write and unserialize to read it back. (But the help file warns that the format is subject to change.) 8.3.11 non-vectorized function in integrate The integrate function expects a vectorized function. When it gives an argument of length 127, it expects to get an answer that is of length 127. It shares its displeasure if that is not what it gets:</p>
+<p>fun1 &lt;- function(x) sin(x) + sin(x-1) + sin(x-2) + sin(x-3) 105 8.3. DEVILS CIRCLE 8. BELIEVING IT DOES AS INTENDED integrate(fun1, 0, 2) -1.530295 with absolute error &lt; 2.2e-14 fun2 &lt;- function(x) sum(sin(x - 0:3)) integrate(fun2, 0, 2) Error in integrate(fun2, 0, 2) : evaluation of function gave a result of wrong length In addition: Warning message: longer object length is not a multiple of shorter object length in: x - 0:3 fun3 &lt;- function(x) rowSums(sin(outer(x, 0:3, ’-’))) integrate(fun3, 0, 2) -1.530295 with absolute error &lt; 2.2e-14 fun1 is a straightforward implementation of what was wanted, but not easy to generalize. fun2 is an ill-conceived attempt at mimicking fun1. fun3 is a proper implementation of the function using outer as a step in getting the vectorization correct.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
